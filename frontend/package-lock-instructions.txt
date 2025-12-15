@@ -1,0 +1,96 @@
+# Frontend Dependencies - Instructions
+# ====================================
+
+This file explains the frontend dependency management.
+
+## Package Manager
+We use npm (Node Package Manager) for frontend dependencies.
+
+## Main Files
+- package.json: Lists all dependencies and scripts
+- package-lock.json: Auto-generated, locks exact versions (DO NOT EDIT MANUALLY)
+
+## Installation
+
+First time:
+  npm install
+
+This will:
+- Read package.json
+- Download all packages to node_modules/
+- Create/update package-lock.json
+
+## Adding New Packages
+
+Install and save to package.json:
+  npm install <package-name>
+
+Install dev dependency:
+  npm install --save-dev <package-name>
+
+## Updating Packages
+
+Update all packages:
+  npm update
+
+Update specific package:
+  npm update <package-name>
+
+## Removing Packages
+
+  npm uninstall <package-name>
+
+## Current Dependencies
+
+Production:
+- react@18.2.0
+- react-dom@18.2.0
+- react-router-dom@6.20.0
+- framer-motion@10.16.16
+- react-icons@4.12.0
+- axios@1.6.2
+- swiper@11.0.5
+- react-scripts@5.0.1
+
+Development:
+- @testing-library/react
+- @testing-library/jest-dom
+- @testing-library/user-event
+
+## Scripts
+
+Run development server:
+  npm start
+
+Build for production:
+  npm run build
+
+Run tests:
+  npm test
+
+Eject from Create React App:
+  npm run eject
+
+## Troubleshooting
+
+If you encounter issues:
+
+1. Delete node_modules and package-lock.json:
+   rmdir /s /q node_modules
+   del package-lock.json
+
+2. Clear npm cache:
+   npm cache clean --force
+
+3. Reinstall:
+   npm install
+
+## Version Info
+
+Node.js version: 14+ required
+npm version: 6+ required
+
+Check your versions:
+  node --version
+  npm --version
+

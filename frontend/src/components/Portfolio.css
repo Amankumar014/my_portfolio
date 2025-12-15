@@ -1,0 +1,237 @@
+.portfolio__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.portfolio__swiper {
+  padding: 1rem 0 3rem;
+}
+
+.portfolio__content {
+  background: var(--bg-secondary);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.portfolio__content:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+.portfolio__img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio__content:hover .portfolio__img {
+  transform: scale(1.1);
+}
+
+.portfolio__data {
+  padding: 1.5rem;
+}
+
+.portfolio__title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.portfolio__company {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.portfolio__description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.portfolio__list {
+  margin: 0 0 1.5rem;
+  padding-left: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.portfolio__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: gap 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.portfolio__button:hover {
+  gap: 1rem;
+}
+
+.portfolio__modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1200;
+  backdrop-filter: blur(4px);
+}
+
+.portfolio__modal-content {
+  background: var(--bg-primary);
+  border-radius: 1rem;
+  max-width: 640px;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  box-shadow: var(--shadow-xl);
+}
+
+.portfolio__modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.portfolio__modal-close:hover {
+  transform: rotate(90deg);
+}
+
+.portfolio__modal-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.portfolio__modal-company {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.portfolio__modal-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.portfolio__modal-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* Swiper Navigation */
+:global(.swiper-button-prev),
+:global(.swiper-button-next) {
+  color: var(--primary-color);
+  width: 40px;
+  height: 40px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+}
+
+:global(.swiper-button-prev):after,
+:global(.swiper-button-next):after {
+  font-size: 1.25rem;
+}
+
+:global(.swiper-button-prev):hover,
+:global(.swiper-button-next):hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Swiper Pagination */
+:global(.swiper-pagination-bullet) {
+  background: var(--text-secondary);
+  opacity: 0.5;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background: var(--primary-color);
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .portfolio__container {
+    padding: 0 1rem;
+  }
+
+  .portfolio__img {
+    height: 250px;
+  }
+
+  .portfolio__data {
+    padding: 1.5rem;
+  }
+
+  .portfolio__modal-content {
+    padding: 1.5rem;
+    margin: 0 0.5rem;
+  }
+
+  .portfolio__title {
+    font-size: 1.1rem;
+  }
+
+  .portfolio__description {
+    font-size: 0.9rem;
+  }
+
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
+    width: 35px;
+    height: 35px;
+  }
+
+  :global(.swiper-button-prev):after,
+  :global(.swiper-button-next):after {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio__img {
+    height: 200px;
+  }
+
+  .portfolio__data {
+    padding: 1.25rem;
+  }
+
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
+    display: none;
+  }
+}
+

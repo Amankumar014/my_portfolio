@@ -1,0 +1,79 @@
+# Portfolio Website - Project Requirements
+# ==========================================
+# This file lists requirements for the entire project
+
+# BACKEND REQUIREMENTS
+# --------------------
+# Python 3.8+ required
+# See: backend/requirements.txt for Python dependencies
+
+# To install backend dependencies:
+# cd backend
+# pip install -r requirements.txt
+
+# Core Backend Packages:
+# - Flask==3.0.0
+# - Flask-CORS==4.0.0
+# - python-dotenv==1.0.0
+
+# FRONTEND REQUIREMENTS
+# ---------------------
+# Node.js 14+ and npm required
+# See: frontend/package.json for Node.js dependencies
+
+# To install frontend dependencies:
+# cd frontend
+# npm install
+
+# Core Frontend Packages:
+# - react@18.2.0
+# - react-dom@18.2.0
+# - react-router-dom@6.20.0
+# - framer-motion@10.16.16
+# - react-icons@4.12.0
+# - axios@1.6.2
+# - swiper@11.0.5
+
+# DEVELOPMENT TOOLS
+# -----------------
+# Optional tools for development:
+
+# Python Development:
+# - pytest (for testing)
+# - black (code formatter)
+# - flake8 (linter)
+# - pylint (code analysis)
+
+# Frontend Development:
+# - ESLint (already in react-scripts)
+# - Prettier (code formatter)
+
+# QUICK SETUP
+# -----------
+# Run: setup.bat (Windows)
+# This will install all dependencies automatically
+
+# MANUAL SETUP
+# ------------
+# Backend:
+#   cd backend
+#   python -m venv venv
+#   venv\Scripts\activate
+#   pip install -r requirements.txt
+
+# Frontend:
+#   cd frontend
+#   npm install
+
+# SYSTEM REQUIREMENTS
+# -------------------
+# - Python 3.8 or higher
+# - Node.js 14 or higher
+# - npm 6 or higher
+# - Windows/Linux/Mac OS
+
+# For more information, see:
+# - README.md
+# - SETUP_INSTRUCTIONS.md
+# - HOW_TO_RUN.md
+

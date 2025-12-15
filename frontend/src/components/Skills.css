@@ -1,0 +1,159 @@
+.skills__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.skills__content {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.skills__content:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+}
+
+.skills__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.skills__icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.skills__title-wrapper {
+  flex: 1;
+}
+
+.skills__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.skills__subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.skills__arrow {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.skills__list {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow: hidden;
+}
+
+.skills__data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skills__titles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skills__name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.skills__number {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.skills__bar {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-primary);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.skills__percentage {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .skills__container {
+    padding: 0 1rem;
+  }
+
+  .skills__content {
+    padding: 1.5rem;
+  }
+
+  .skills__icon {
+    font-size: 1.5rem;
+  }
+
+  .skills__title {
+    font-size: 1.1rem;
+  }
+
+  .skills__subtitle {
+    font-size: 0.8rem;
+  }
+
+  .skills__arrow {
+    font-size: 1.25rem;
+  }
+
+  .skills__name {
+    font-size: 0.9rem;
+  }
+
+  .skills__number {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skills__content {
+    padding: 1.25rem;
+  }
+
+  .skills__header {
+    gap: 0.75rem;
+  }
+
+  .skills__list {
+    margin-top: 1.5rem;
+    gap: 1rem;
+  }
+
+  .skills__bar {
+    height: 6px;
+  }
+}
+
