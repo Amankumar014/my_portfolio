@@ -1,0 +1,10 @@
+{
+  "short_name": "Portfolio",
+  "name": "Code_Sapiens_ Portfolio",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#6366f1",
+  "background_color": "#ffffff"
+}
+

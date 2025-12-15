@@ -1,0 +1,172 @@
+.contact__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.contact__info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact__information {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.contact__information:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateX(10px);
+}
+
+.contact__icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.contact__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.contact__subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact__inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.contact__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.contact__input {
+  width: 100%;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  padding: 1rem;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+
+.contact__input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.contact__status {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.contact__status--success {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+body.dark-theme .contact__status--success {
+  background: #064e3b;
+  color: #d1fae5;
+}
+
+.contact__status--error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+body.dark-theme .contact__status--error {
+  background: #7f1d1d;
+  color: #fee2e2;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 968px) {
+  .contact__container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact__container {
+    padding: 0 1rem;
+  }
+
+  .contact__inputs {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contact__information {
+    padding: 1.25rem;
+  }
+
+  .contact__icon {
+    font-size: 1.75rem;
+  }
+
+  .contact__title {
+    font-size: 1rem;
+  }
+
+  .contact__subtitle {
+    font-size: 0.875rem;
+  }
+
+  .contact__input {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact__information {
+    padding: 1rem;
+  }
+
+  .contact__icon {
+    font-size: 1.5rem;
+  }
+
+  .contact__form {
+    gap: 1.25rem;
+  }
+}
+

@@ -1,0 +1,136 @@
+.testimonials__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.testimonials__swiper {
+  padding: 1rem 0 3rem;
+}
+
+.testimonial__card {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.testimonial__card:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+.testimonial__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testimonial__img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+}
+
+.testimonial__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial__name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.testimonial__role {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.testimonial__stars {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.testimonial__star {
+  color: #fbbf24;
+  fill: #fbbf24;
+  font-size: 1.1rem;
+}
+
+.testimonial__comment {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+/* Swiper Pagination */
+:global(.swiper-pagination-bullet) {
+  background: var(--text-secondary);
+  opacity: 0.5;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background: var(--primary-color);
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .testimonials__container {
+    padding: 0 1rem;
+  }
+
+  .testimonial__card {
+    padding: 1.5rem;
+  }
+
+  .testimonial__img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .testimonial__name {
+    font-size: 1rem;
+  }
+
+  .testimonial__role {
+    font-size: 0.8rem;
+  }
+
+  .testimonial__comment {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .testimonial__card {
+    padding: 1.25rem;
+  }
+
+  .testimonial__header {
+    gap: 0.75rem;
+  }
+
+  .testimonial__img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .testimonial__stars {
+    gap: 0.15rem;
+  }
+
+  .testimonial__star {
+    font-size: 1rem;
+  }
+}
+
