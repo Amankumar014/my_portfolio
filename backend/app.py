@@ -4,6 +4,7 @@ import os
 import asyncio
 from datetime import datetime
 from pathlib import Path
+import requests
 
 # Import chatbot functions
 try:
@@ -41,6 +42,30 @@ CORS(app, resources={
 # Configuration
 app.config['JSON_SORT_KEYS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
+
+# Anam configuration
+ANAM_API_KEY = os.getenv('ANAM_API_KEY')
+ANAM_API_BASE_URL = "https://api.anam.ai"
+ANAM_SESSION_TOKEN_PATH = "/v1/auth/session-token"
+ANAM_VOICE_ID = os.getenv('ANAM_VOICE_ID', '6bfbe25a-979d-40f3-a92b-5394170af54b')
+ANAM_AVATAR_ID = os.getenv('ANAM_AVATAR_ID', '30fa96d0-26c4-4e55-94a0-517025942e18')
+ANAM_LLM_ID = os.getenv('ANAM_LLM_ID', '0934d97d-0c3a-4f33-91b0-5e136a0ef466')
+
+# Default persona configuration used when creating sessions
+DEFAULT_PERSONA_CONFIG = {
+    "name": "Portfolio Guide",
+    # Avatar, voice, and LLM can be customized via environment variables
+    "avatarId": ANAM_AVATAR_ID,
+    "voiceId": ANAM_VOICE_ID,
+    "llmId": ANAM_LLM_ID,
+    # Explicitly allow media streaming
+    "audioInputEnabled": True,
+    "videoEnabled": True,
+    "systemPrompt": (
+        "You are a friendly portfolio guide. Keep answers concise, "
+        "use plain language, and invite the user to ask follow-up questions."
+    ),
+}
 
 # Configure upload folder for files
 UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), '../files')
@@ -183,6 +208,66 @@ def get_skills():
         'success': True,
         'skills': skills
     }), 200
+
+# ==============================================================================
+# ANAM VOICE ASSISTANT ENDPOINTS
+# ==============================================================================
+
+
+@app.route('/api/session-token', methods=['POST'])
+def create_session_token():
+    """Create a short-lived Anam session token (API key stays server-side)."""
+    if not ANAM_API_KEY:
+        return jsonify({
+            'success': False,
+            'error': 'Server missing ANAM_API_KEY configuration'
+        }), 500
+
+    payload = {
+        "personaConfig": DEFAULT_PERSONA_CONFIG
+    }
+
+    try:
+        response = requests.post(
+            f"{ANAM_API_BASE_URL}{ANAM_SESSION_TOKEN_PATH}",
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {ANAM_API_KEY}"
+            },
+            json=payload,
+            timeout=10
+        )
+        response.raise_for_status()
+        data = response.json()
+        session_token = data.get("sessionToken")
+
+        if not session_token:
+            return jsonify({
+                'success': False,
+                'error': 'Missing sessionToken in Anam response'
+            }), 502
+
+        return jsonify({
+            'success': True,
+            'sessionToken': session_token
+        }), 200
+
+    except requests.exceptions.HTTPError as http_err:
+        return jsonify({
+            'success': False,
+            'error': f"Anam API error: {http_err}",
+            'status_code': response.status_code if 'response' in locals() else None
+        }), response.status_code if 'response' in locals() else 502
+    except requests.exceptions.RequestException as req_err:
+        return jsonify({
+            'success': False,
+            'error': f"Failed to reach Anam API: {req_err}"
+        }), 502
+    except Exception as exc:
+        return jsonify({
+            'success': False,
+            'error': f"Unexpected server error: {exc}"
+        }), 500
 
 # ==============================================================================
 # CHATBOT ENDPOINTS

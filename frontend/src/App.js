@@ -12,6 +12,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Chatbot from './components/Chatbot';
+import AnamVoiceAssistant from './components/AnamVoiceAssistant';
 import './App.css';
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Services />
           <Portfolio />
           <Testimonials />
+        <AnamVoiceAssistant />
           <Contact />
         </main>
         <Footer />
