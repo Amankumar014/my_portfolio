@@ -5,6 +5,7 @@
   box-shadow: var(--shadow-lg, 0 10px 30px rgba(0, 0, 0, 0.08));
   padding: 2rem;
   margin: 3rem auto;
+  scroll-margin-top: 100px;
 }
 
 body.dark-theme .anam-assistant {

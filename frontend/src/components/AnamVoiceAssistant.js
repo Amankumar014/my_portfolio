@@ -146,7 +146,7 @@ const AnamVoiceAssistant = () => {
   };
 
   return (
-    <section className="section anam-assistant">
+    <section className="section anam-assistant" id="voice-assistant">
       <h2 className="section__title">Aman&apos;s Voice Assistant</h2>
       <span className="section__subtitle">Talk to the AI persona in real time</span>
 

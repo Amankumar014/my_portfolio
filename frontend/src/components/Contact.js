@@ -125,7 +125,7 @@ const Contact = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                rows="7"
+                rows="3"
                 className="contact__input"
                 required
               />

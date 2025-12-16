@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiHome, FiUser, FiBriefcase, FiFileText, FiImage, FiMail, FiMoon, FiSun, FiMenu, FiX } from 'react-icons/fi';
+import { FiHome, FiUser, FiBriefcase, FiFileText, FiImage, FiMail, FiMoon, FiSun, FiMenu, FiX, FiMic } from 'react-icons/fi';
 import './Header.css';
 
 const Header = ({ darkMode, toggleTheme }) => {
@@ -13,15 +13,17 @@ const Header = ({ darkMode, toggleTheme }) => {
       setScrolled(window.scrollY > 50);
       
       // Update active section based on scroll position
-      const sections = ['home', 'about', 'skills', 'services', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 100;
-      
+      const sections = ['home', 'about', 'skills', 'services', 'projects', 'voice-assistant', 'contact'];
+      const headerHeight = 100; // Approximate header height
+    
       sections.forEach(sectionId => {
         const section = document.getElementById(sectionId);
         if (section) {
-          const top = section.offsetTop;
-          const height = section.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
+          const rect = section.getBoundingClientRect();
+          const sectionTop = rect.top;
+          const sectionBottom = rect.bottom;
+          // Check if section is in viewport (accounting for header)
+          if (sectionTop <= headerHeight + 50 && sectionBottom >= headerHeight + 50) {
             setActiveSection(sectionId);
           }
         }
@@ -38,6 +40,7 @@ const Header = ({ darkMode, toggleTheme }) => {
     { name: 'Skills', icon: <FiFileText />, href: '#skills' },
     { name: 'Services', icon: <FiBriefcase />, href: '#services' },
     { name: 'Projects', icon: <FiImage />, href: '#projects' },
+    { name: 'Voice AI', icon: <FiMic />, href: '#voice-assistant' },
     { name: 'Contact', icon: <FiMail />, href: '#contact' },
   ];
 
