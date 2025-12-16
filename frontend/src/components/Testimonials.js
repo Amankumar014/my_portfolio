@@ -13,14 +13,14 @@ const Testimonials = () => {
       id: 1,
       name: 'Prina Lama',
       role: 'Subject Matter Expert',
-      image: '/files/img/testimonial1.jpg',
-      comment: 'Experimental and innovative approach to building AI solutions. He is a research oriented visionary in the field of AI building for Social Cause.',
+      image: '/files/img/prina.jpeg',
+      comment: 'Experimental and innovative approach to building AI solutions. He is a research oriented visionary in the field of AI & building for Social Cause.',
     },
     {
       id: 2,
       name: 'Rajesh Sah',
       role: 'Senior UI/UX Designer (Microsoft)',
-      image: '/files/img/testimonial2.jpg',
+      image: '/files/img/rajesh.jpeg',
       comment: 'Deep Knowledge of Real World Problems and Understanding . Building AI Solutions to solve Real World Problems in various domains.',
     },
     {
@@ -41,7 +41,7 @@ const Testimonials = () => {
         transition={{ duration: 0.6 }}
       >
         <h2 className="section__title">Testimonials</h2>
-        <span className="section__subtitle">What clients say</span>
+        <span className="section__subtitle">What professionals say</span>
 
         <div className="testimonials__container">
           <Swiper
