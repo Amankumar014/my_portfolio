@@ -11,24 +11,24 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Aman Kumar',
-      role: 'Client',
+      name: 'Prina Lama',
+      role: 'Subject Matter Expert',
       image: '/files/img/testimonial1.jpg',
-      comment: 'Outstanding work on our AI project! The neural network implementation exceeded our expectations and delivered exceptional results. Highly professional and knowledgeable.',
+      comment: 'Experimental and innovative approach to building AI solutions. He is a research oriented visionary in the field of AI building for Social Cause.',
     },
     {
       id: 2,
-      name: 'David Harrison',
-      role: 'Client',
+      name: 'Rajesh Sah',
+      role: 'Senior UI/UX Designer (Microsoft)',
       image: '/files/img/testimonial2.jpg',
-      comment: 'Excellent data science expertise. The insights provided through comprehensive analysis helped our business make data-driven decisions. Great communication throughout the project.',
+      comment: 'Deep Knowledge of Real World Problems and Understanding . Building AI Solutions to solve Real World Problems in various domains.',
     },
     {
       id: 3,
-      name: 'Kowsalya Ranaya',
-      role: 'Client',
+      name: 'Vinod Bukya',
+      role: 'Senior Generative AI Engineer (Ex-IIT Madras)',
       image: '/files/img/testimonial3.jpg',
-      comment: 'Impressive machine learning solutions! The predictive models built were accurate and scalable. A true expert in the field with exceptional problem-solving skills.',
+      comment: 'Impressive Generative and Agentic AI solutions!. A true expert in the field with exceptional problem-solving skills.',
     },
   ];
 

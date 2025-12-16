@@ -61,6 +61,12 @@
   border: 2px solid var(--primary-color);
 }
 
+body.dark-theme .button--white {
+  background: var(--bg-secondary);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
 .button--white:hover {
   background: var(--primary-color);
   color: white;
