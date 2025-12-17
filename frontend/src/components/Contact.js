@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiPhone, FiMail, FiMapPin, FiDownload, FiSend } from 'react-icons/fi';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
+import downloadCV from '../utils/downloadCV';
 import './Contact.css';
 
 const Contact = () => {
@@ -27,7 +29,7 @@ const Contact = () => {
     setStatus({ type: '', message: '' });
 
     try {
-      const response = await axios.post('/api/contact', formData);
+      await axios.post(`${API_BASE_URL}/api/contact`, formData);
       setStatus({ type: 'success', message: 'Message sent successfully!' });
       setFormData({ name: '', email: '', project: '', message: '' });
     } catch (error) {
@@ -38,9 +40,9 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: <FiPhone />, title: 'Call me', subtitle: '999-555-442' },
-    { icon: <FiMail />, title: 'Email', subtitle: 'example@gmail.com' },
-    { icon: <FiMapPin />, title: 'Location', subtitle: 'India - West Bengal' },
+    { icon: <FiPhone />, title: 'Call me', subtitle: '7363829794' },
+    { icon: <FiMail />, title: 'Email', subtitle: 'amankumar.ai@zohomail.in' },
+    { icon: <FiMapPin />, title: 'Location', subtitle: 'Siliguri , India - West Bengal' },
   ];
 
   return (
@@ -71,9 +73,13 @@ const Contact = () => {
                 </div>
               </div>
             ))}
-            <a href="/files/pdf/my-cv.pdf" download className="button button--flex">
+            <button 
+              onClick={downloadCV}
+              className="button button--flex"
+              type="button"
+            >
               Download CV <FiDownload />
-            </a>
+            </button>
           </motion.div>
 
           <motion.form

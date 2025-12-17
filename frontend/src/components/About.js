@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiDownload, FiAward, FiBriefcase, FiUsers } from 'react-icons/fi';
+import downloadCV from '../utils/downloadCV';
 import './About.css';
 
 const About = () => {
@@ -63,9 +64,13 @@ const About = () => {
               ))}
             </div>
 
-            <a href="/files/pdf/Alexa-Cv.pdf" download className="button button--flex">
+            <button 
+              onClick={downloadCV}
+              className="button button--flex"
+              type="button"
+            >
               Download CV <FiDownload />
-            </a>
+            </button>
           </motion.div>
         </div>
       </motion.div>

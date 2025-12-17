@@ -33,7 +33,13 @@ class Config:
     API_VERSION = 'v1'
     
     # Database settings (for future use)
-    DATABASE_URL = os.getenv('DATABASE_URL', f'sqlite:///{BASE_DIR}/portfolio.db')
+    # Use /home directory on Azure App Service, local path for development
+    if os.path.exists('/home'):
+        # Azure App Service - use /home directory (writable)
+        DATABASE_URL = f'sqlite:////home/portfolio.db'
+    else:
+        # Local development
+        DATABASE_URL = os.getenv('DATABASE_URL', f'sqlite:///{BASE_DIR}/portfolio.db')
     
     # Email settings (for contact form)
     MAIL_SERVER = os.getenv('MAIL_SERVER', 'smtp.gmail.com')

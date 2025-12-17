@@ -6,18 +6,19 @@ from datetime import datetime
 from pathlib import Path
 import requests
 
-# Import chatbot functions
-try:
-    from chatbot import (
-        ask_chatbot_langgraph,
-        initialize_chatbot_at_startup,
-        check_status_langgraph,
-        rebuild_index_langgraph
-    )
-    CHATBOT_AVAILABLE = True
-except ImportError as e:
-    print(f"Warning: Chatbot not available: {e}")
-    CHATBOT_AVAILABLE = False
+# Import chatbot functions ( disabled for azure free plan , cannot load on free plan .)
+# try:
+#     from chatbot import (
+#         ask_chatbot_langgraph,
+#         initialize_chatbot_at_startup,
+#         check_status_langgraph,
+#         rebuild_index_langgraph
+#     )
+#     CHATBOT_AVAILABLE = True
+# except ImportError as e:
+#     print(f"Warning: Chatbot not available: {e}")
+#     CHATBOT_AVAILABLE = False
+CHATBOT_AVAILABLE = False
 
 # Email service
 try:
@@ -68,7 +69,11 @@ DEFAULT_PERSONA_CONFIG = {
 }
 
 # Configure upload folder for files
-UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), '../files')
+# Use /home on Azure App Service (writable), local path for development
+if os.path.exists('/home'):
+    UPLOAD_FOLDER = '/home/files'
+else:
+    UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), '../files')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # In-memory storage for contact messages (use database in production)
@@ -365,8 +370,19 @@ def chatbot_rebuild():
 # Serve static files
 @app.route('/files/<path:path>')
 def serve_files(path):
-    """Serve static files"""
-    return send_from_directory(app.config['UPLOAD_FOLDER'], path)
+    """Serve static files from UPLOAD_FOLDER or React build folder"""
+    # First try UPLOAD_FOLDER (for Azure /home/files or local ../files)
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], path)
+    if os.path.exists(file_path):
+        return send_from_directory(app.config['UPLOAD_FOLDER'], path)
+    
+    # Fallback to React build folder (for files in frontend/build/files)
+    build_file_path = os.path.join(app.static_folder, 'files', path)
+    if os.path.exists(build_file_path):
+        return send_from_directory(os.path.join(app.static_folder, 'files'), path)
+    
+    # If file not found, return 404
+    return jsonify({'error': 'File not found'}), 404
 
 # Serve React app (catch-all route for React Router)
 @app.route('/', defaults={'path': ''})
@@ -382,6 +398,12 @@ if __name__ == '__main__':
     # Create upload folder if it doesn't exist
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     
+    # Create /home directory if on Azure (for SQLite databases)
+    home_dir = Path('/home')
+    if home_dir.exists():
+        home_dir.mkdir(parents=True, exist_ok=True)
+        print(f"✓ Azure /home directory available: {home_dir}")
+    
     # Initialize chatbot at startup (optional - can be lazy loaded)
     if CHATBOT_AVAILABLE:
         try:
@@ -391,6 +413,11 @@ if __name__ == '__main__':
             print(f"Warning: Failed to initialize chatbot at startup: {e}")
             print("Chatbot will be initialized on first request")
     
+    # Get port from environment variable (Azure provides PORT, default to 5000 for local)
+    port = int(os.environ.get('PORT', 5000))
+    
     # Run the application
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # Note: In production (Azure), Gunicorn will be used via startup.sh
+    # This is only for local development
+    app.run(debug=False, host='0.0.0.0', port=port)
 

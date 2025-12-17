@@ -13,9 +13,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <FiLinkedin />, href: 'https://linkedin.com' },
-    { icon: <FiGithub />, href: 'https://github.com' },
-    { icon: <FiTwitter />, href: 'https://twitter.com' },
+    { icon: <FiLinkedin />, href: 'https://www.linkedin.com/in/amankumarsahai/' },
+    { icon: <FiGithub />, href: 'https://github.com/Amankumar014' },
+    { icon: <FiTwitter />, href: 'https://www.instagram.com/code_sapiens_/' },
   ];
 
   return (
@@ -30,7 +30,7 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="footer__title">Code_Sapiens_</h1>
-            <span className="footer__subtitle">AI/ML Developer</span>
+            <span className="footer__subtitle">Generative AI & Agentic AI Developer</span>
           </motion.div>
 
           <motion.ul

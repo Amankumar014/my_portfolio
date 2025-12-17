@@ -1,41 +1,62 @@
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
 venv/
 env/
-myenv/
-/myenv/
-.myenv/
-.myenv
 ENV/
+myenv/
+
+# Environment variables
 .env
-.venv
-instance/
-.pytest_cache/
-.coverage
-htmlcov/
-dist/
-build/
-*.egg-info/
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
 .DS_Store
-requirements-dev.txt
-requirements-prod.txt
+Thumbs.db
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+chatbot_langgraph.db
 chatbot_langgraph.db-shm
 chatbot_langgraph.db-wal
-CHATBOT_SETUP.md
-CHATBOT_USAGE.md
-CHATBOT_TROUBLESHOOTING.md
-CHATBOT_FAQ.md
-CHATBOT_UPGRADE.md
-CHATBOT_MAINTENANCE.md
-CHATBOT_SECURITY.md
-CHATBOT_PERFORMANCE.md
-CHATBOT_BEST_PRACTICES.md
-CHATBOT_CASE_STUDIES.md
-CHATBOT_TESTING.md
-CHATBOT_DOCUMENTATION.md
 
-chatbot_langgraph.db
-CHATBOT_SETUP.md
+# Logs
+*.log
+logs/
+
+# Azure
+.azure/
+
+# Temporary files
+*.tmp
+*.temp

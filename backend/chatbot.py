@@ -41,6 +41,12 @@ RAG_DOCUMENTS_DIR = PROJECT_ROOT / "chatbot_document"
 BIOGRAPHY_PDF = RAG_DOCUMENTS_DIR / "aman_biography.pdf"
 CHATBOT_DB = PROJECT_ROOT / "chatbot_langgraph.db"
 
+if os.path.exists('/home'):
+    CHATBOT_DB = Path('/home') / "chatbot_langgraph.db"
+else:
+    # Local development
+    CHATBOT_DB = PROJECT_ROOT / "chatbot_langgraph.db"
+
 # ==============================================================================
 # GLOBAL INSTANCES
 # ==============================================================================

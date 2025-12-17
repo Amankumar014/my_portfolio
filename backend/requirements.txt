@@ -10,22 +10,21 @@ requests
 # Environment Configuration
 python-dotenv==1.0.0
 
-# RAG Chatbot Dependencies
-sentence-transformers
-faiss-cpu
-pypdf
-langchain
-langchain-community
-langchain-core
-langchain-openai
-langchain-huggingface
-langchain-text-splitters
-langgraph-checkpoint-sqlite
-huggingface_hub
+# RAG Chatbot Dependencies to be installed later with basic plan on azure , cannot load on free plan .
+# sentence-transformers
+# faiss-cpu
+# pypdf
+# langchain
+# langchain-community
+# langchain-core
+# langchain-openai
+# langchain-huggingface
+# langchain-text-splitters
+# langgraph-checkpoint-sqlite
+# huggingface_hub
 
-# Optional: Production Server
-# Uncomment for production deployment
-# gunicorn==21.2.0
+# Production Server (Required for Azure App Service)
+gunicorn==21.2.0
 
 # Optional: Database Support
 # Uncomment if using database

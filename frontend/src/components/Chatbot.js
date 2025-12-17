@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMessageCircle, FiX, FiSend, FiMinimize2 } from 'react-icons/fi';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
 import './Chatbot.css';
 
 const Chatbot = () => {
@@ -53,7 +54,7 @@ const Chatbot = () => {
     setError(null);
 
     try {
-      const response = await axios.post('/api/chatbot/ask', {
+      const response = await axios.post(`${API_BASE_URL}/api/chatbot/ask`, {
         question: userMessage.text,
         thread_id: 'default'
       });

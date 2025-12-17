@@ -226,8 +226,9 @@
   }
 
   .portfolio__data {
-    padding: 1.25rem;
+    padding: 1.5rem 1rem 1.5rem 2.5rem;
   }
+
 
   :global(.swiper-button-prev),
   :global(.swiper-button-next) {

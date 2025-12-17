@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { createClient, AnamEvent } from '@anam-ai/js-sdk';
+import API_BASE_URL from '../config/api';
 import './AnamVoiceAssistant.css';
 
 const statusCopy = {
@@ -79,7 +80,7 @@ const AnamVoiceAssistant = () => {
     try {
       const stream = await requestMicrophone();
 
-      const response = await fetch('/api/session-token', { method: 'POST' });
+      const response = await fetch(`${API_BASE_URL}/api/session-token`, { method: 'POST' });
       if (!response.ok) {
         const message = `Failed to get session token (${response.status})`;
         throw new Error(message);
