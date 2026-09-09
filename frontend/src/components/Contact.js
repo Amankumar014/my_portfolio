@@ -40,7 +40,7 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: <FiPhone />, title: 'Call me', subtitle: '7363829794' },
+    { icon: <FiPhone />, title: 'Call me', subtitle: '******9794' },
     { icon: <FiMail />, title: 'Email', subtitle: 'amankumar.ai@zohomail.in' },
     { icon: <FiMapPin />, title: 'Location', subtitle: 'Siliguri , India - West Bengal' },
   ];

@@ -8,18 +8,18 @@ const Qualification = () => {
 
   const education = [
     {
-      title: 'GATE (DA) Qualified',
+      title: 'M.Tech CSE(AI & DS)',
       subtitle: 'Data Science & Artificial Intelligence',
-      date: '2024',
+      date: '2026 - 2028',
     },
     {
-      title: 'B.Tech (CSE, AIML Specialization)',
+      title: 'B.Tech CSE ( AI & ML )',
       subtitle: 'Techno Main Salt Lake, Kolkata',
-      date: '2020 - 2024',
+      date: '2025 PASSOUT',
     },
     {
       title: 'Skill Development (STEM)',
-      subtitle: 'Allen Career Institute',
+      subtitle: 'Allen Career Institute ( KOTA )',
       date: '2019 - 2020',
     },
     {
