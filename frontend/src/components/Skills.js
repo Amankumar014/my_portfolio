@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiCode, FiServer, FiCpu, FiLayers, FiChevronDown } from 'react-icons/fi';
+import { FiCode, FiServer, FiLayers, FiChevronDown } from 'react-icons/fi';
 import './Skills.css';
 
 const Skills = () => {
