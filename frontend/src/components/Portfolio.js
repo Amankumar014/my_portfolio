@@ -40,7 +40,7 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: 'AI Freight Quotation from RFQs',
+      title: 'AI Freight-Quotation from RFQs',
       company: 'Kaara Info Systems • 2025',
       description:
         'Automated freight quotation engine parsing RFQ emails with LLM validation and rule engines for real-time pricing.',
